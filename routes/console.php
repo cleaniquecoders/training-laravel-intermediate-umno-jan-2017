@@ -16,6 +16,15 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
 
+Artisan::command('user:input', function () {
+    $value = $this->ask('ask something');
+    $this->comment('value: ' . $value);
+    $value = $this->confirm('make confirmation');
+    $this->comment('value: ' . $value);
+    $value = $this->secret('request something secret');
+    $this->comment('value: ' . $value);
+});
+
 // create multiple models at one time
 // Artisan::command('make:models {models*}', function () {
 //     $models = $this->argument('models');
