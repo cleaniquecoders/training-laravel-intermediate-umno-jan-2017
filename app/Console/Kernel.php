@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \App\Console\Commands\MakeModelsCommand::class,
+        \App\Console\Commands\MakeViewCommand::class,
+        \App\Console\Commands\ClearCacheCommand::class,
     ];
 
     /**
