@@ -1,11 +1,5 @@
 # Notification
 
-## Create new notification
-
-```
-php artisan make:notification WelcomeNotification
-```
-
 ## Setup Mail Settings
 
 Open up `.env`, setup all with prefix `MAIL_`.
@@ -22,6 +16,13 @@ MAIL_ENCRYPTION=null
 ```
 
 Make sure to run `php artisan config:cache` afterwards.
+
+
+## Create new notification
+
+```
+php artisan make:notification WelcomeNotification
+```
 
 ## Use Notifiable Trait
 
@@ -47,5 +48,7 @@ Artisan::command('sendmail', function () {
     $user->notify(new \App\Notifications\WelcomeNotification());
 });
 ```
+
+> Please ensured to migrate users table and seeds data.
 
 And then in terminal, run `php artisan sendmail`. You should receive emails in your mailtrap.io account.
