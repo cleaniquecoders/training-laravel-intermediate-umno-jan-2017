@@ -10,7 +10,7 @@
 | simple approach to interacting with each command's IO methods.
 |
  */
-use Illuminate\Foundation\Inspiring;
+use App\User;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
@@ -77,3 +77,10 @@ Artisan::command('user:input', function () {
 //     $this->error('Optimizing your application...');
 //     $this->call('optimize');
 // })->describe('Clear all caches');
+
+use Illuminate\Foundation\Inspiring;
+
+Artisan::command('sendmail', function () {
+    $user = App\User::find(1);
+    $user->notify(new \App\Notifications\WelcomeNotification());
+});
